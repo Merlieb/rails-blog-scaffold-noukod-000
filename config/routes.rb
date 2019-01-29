@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'categories/show'
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update]
+  resources :posts #, only: [:index, :show, :new, :create, :edit, :update]
   resources :categories
   resources :apartments
   # The priority is based upon order of creation: first created -> highest priority.
