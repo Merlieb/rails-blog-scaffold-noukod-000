@@ -1,9 +1,6 @@
-<%= form_for(@post) do |f| %>
-  <label>Post title:</label><br>
-  <%= f.text_field :title %><br>
+<h1>Editing Post</h1>
 
-  <label>Post Description</label><br>
-  <%= f.text_area :description %><br>
+<%= render 'form' %>
 
-  <%= f.submit %>
-<% end %>
+<%= link_to 'Show', @post %> |
+<%= link_to 'Back', posts_path %>
