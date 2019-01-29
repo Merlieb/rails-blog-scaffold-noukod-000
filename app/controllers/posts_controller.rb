@@ -21,11 +21,19 @@ class PostsController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
-end
+	end
 
-def update
-	@article = Article.find(params[:id])
- @article.update(title: params[:title], description: params[:description])
- redirect_to article_path(@article)
-end
+	def update
+		@article = Article.find(params[:id])
+ 		@article.update(title: params[:title], description: params[:description])
+ 			redirect_to article_path(@article)
+	end
+
+	def destroy
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 end
