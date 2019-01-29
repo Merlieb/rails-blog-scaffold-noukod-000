@@ -24,10 +24,16 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@article = Article.find(params[:id])
- 		@article.update(title: params[:title], description: params[:description])
- 			redirect_to article_path(@article)
-	end
+    respond_to do |format|
+      if @apartment.update(apartment_params)
+        format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @apartment }
+      else
+        format.html { render :edit }
+        format.json { render json: @apartment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 	def destroy
     @post.destroy
@@ -36,4 +42,15 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+end
+def update
+	respond_to do |format|
+		if @apartment.update(apartment_params)
+			format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
+			format.json { render :show, status: :ok, location: @apartment }
+		else
+			format.html { render :edit }
+			format.json { render json: @apartment.errors, status: :unprocessable_entity }
+		end
+	end
 end
