@@ -41,4 +41,4 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'post was successfully destroyed.' }
       format.json { head :no_content }
     end
-post
+
