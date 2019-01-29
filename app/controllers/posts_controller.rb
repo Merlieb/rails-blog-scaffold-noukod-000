@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@article = Article.find(params[:id])
+		#@article = Article.find(params[:id])
 	end
 
 	# PATCH/PUT /posts/1
